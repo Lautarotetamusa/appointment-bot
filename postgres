@@ -1,0 +1,10 @@
+# Levantar contenedor
+docker run --rm --name appointment-db \
+  -e POSTGRES_PASSWORD=Lautaro123. \
+  -e POSTGRES_USER=postgres \
+  -e POSTGRES_DB=apointmentbot \
+  -p 5432:5432 \
+  -d postgres:latest
+
+# Conexión
+psql -h localhost -p 5432 -U postgres -d apointmentbot
