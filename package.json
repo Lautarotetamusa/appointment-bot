@@ -3,13 +3,15 @@
     "version": "1.0.0",
     "description": "",
     "license": "ISC",
-    "author": "lautaro teta msua",
+    "author": "lautaro teta musa",
     "type": "commonjs",
     "main": "src/index.ts",
     "dependencies": {
+        "@modelcontextprotocol/sdk": "^1.13.2",
         "dotenv": "^16.5.0",
         "drizzle-orm": "^0.44.2",
         "express": "^5.1.0",
+        "openai": "^5.8.1",
         "pg": "^8.16.0",
         "zod": "^3.25.64"
     },
@@ -23,9 +25,14 @@
         "typescript": "^5.8.3"
     },
     "scripts": {
-        "build": "rm -rf dist/ && tsc",
-        "start:dev": "nodemon src/server.ts",
-        "start:prod": "rm -rf dist/ && tsc && node dist/src/server.js",
+        "build:server": "rm -rf dist/ && tsc",
+        "start:server:dev": "nodemon server/src/server.ts",
+        "start:server:prod": "rm -rf dist/ && tsc && cp .env dist/ && cp server/src/db.json dist/server/src/ && node dist/server/src/server.js",
+
+        "build:bot": "rm -rf bot/dist/ && tsc && tsc bot",
+        "start:bot:dev": "ts-node bot/index.ts",
+        "start:bot:prod": "rm -rf bot/dist/ && tsc && node bot/dist/index.js",
+
         "find-process": "ps -x | grep src/server.ts | grep -v grep",
         "kill-process": "ps -x | grep src/server.ts | grep -v grep | awk '{print $1}' | xargs kill -9"
     }

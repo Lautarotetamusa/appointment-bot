@@ -3,7 +3,6 @@ import { and, eq } from 'drizzle-orm';
 import { db } from '../db';
 import { appointmentFilterSchema, appointmentSchema } from '../schema/appointment';
 
-
 export const getAllAppointments = async (req: Request, res: Response) => {
     const {professionalId, serviceId} = appointmentFilterSchema.parse(req.query);
 

@@ -1,0 +1,118 @@
+{
+  "clients": [],
+  "services": [
+      {
+          "id": 1,
+          "title": "Corte de Cabello",
+          "description": "Corte y peinado profesional",
+          "durationMinutes": 45,
+          "price": 2500
+      },
+      {
+          "id": 2,
+          "title": "Manicura",
+          "description": "Cuidado completo de uñas",
+          "durationMinutes": 60,
+          "price": 1800
+      },
+      {
+          "id": 3,
+          "title": "Masaje Relajante",
+          "description": "Masaje corporal de 60 minutos",
+          "durationMinutes": 60,
+          "price": 4000
+      }
+  ],
+  "professionals": [
+      {
+          "id": 1,
+          "name": "Dr. Emilia",
+          "lastName": "Gomez",
+          "email": "emilia.gomez@example.com",
+          "phone": "+5491167890123",
+          "description": "General practitioner specializing in family medicine.",
+          "services": [1],
+          "schedules": [
+              {
+                  "id": 1,
+                  "dayOfWeek": 1,
+                  "startTime": "09:00",
+                  "endTime": "17:00"
+              },
+              {
+                  "id": 2,
+                  "dayOfWeek": 2,
+                  "startTime": "09:00",
+                  "endTime": "17:00"
+              },
+              {
+                  "id": 3,
+                  "dayOfWeek": 3,
+                  "startTime": "09:00",
+                  "endTime": "17:00"
+              },
+              {
+                  "id": 4,
+                  "dayOfWeek": 4,
+                  "startTime": "09:00",
+                  "endTime": "17:00"
+              },
+              {
+                  "id": 5,
+                  "dayOfWeek": 5,
+                  "startTime": "09:00",
+                  "endTime": "17:00"
+              }
+          ]
+      },
+      {
+          "id": 2,
+          "name": "Lic. Ricardo",
+          "lastName": "Perez",
+          "email": "ricardo.perez@example.com",
+          "phone": "+5491123456789",
+          "description": "Licensed psychologist focusing on cognitive behavioral therapy.",
+          "services": [1, 2, 3]
+      },
+      {
+          "id": 3,
+          "name": "Dra. Ana",
+          "lastName": "Diaz",
+          "email": "ana.diaz@example.com",
+          "phone": "+5491187654321",
+          "description": "Pediatrician with extensive experience in child health.",
+          "services": [2, 3],
+          "schedules": [
+              {
+                  "id": 6,
+                  "dayOfWeek": 1,
+                  "startTime": "10:00",
+                  "endTime": "18:00"
+              },
+              {
+                  "id": 7,
+                  "dayOfWeek": 3,
+                  "startTime": "10:00",
+                  "endTime": "18:00"
+              },
+              {
+                  "id": 8,
+                  "dayOfWeek": 5,
+                  "startTime": "10:00",
+                  "endTime": "18:00"
+              }
+          ]
+      },
+      {
+          "id": 4,
+          "name": "Mg. Sofia",
+          "lastName": "Castro",
+          "email": "sofia.castro@example.com",
+          "phone": "+5491112233445",
+          "description": "Nutritionist and dietetics expert, specializing in sports nutrition.",
+          "services": [3]
+      }
+  ],
+  "schedules": [],
+  "appointments": []
+}

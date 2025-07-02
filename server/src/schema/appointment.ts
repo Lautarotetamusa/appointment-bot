@@ -3,6 +3,7 @@ import { clientSchema } from './client';
 import { professionalSchema } from './professional';
 import { serviceSchema } from './service';
 import { z } from 'zod';
+import { transformIntQueryParam } from './util';
 
 export const appointmentSchema = pgTable('appointment', {
     id: integer('id').primaryKey().generatedAlwaysAsIdentity(),
@@ -27,10 +28,4 @@ export const appointmentSchema = pgTable('appointment', {
 export const appointmentFilterSchema = z.object({
     professionalId: z.string().optional().transform(transformIntQueryParam),
     serviceId: z.string().optional().transform(transformIntQueryParam),
-});
-
-function transformIntQueryParam(param: string | undefined): number | undefined {
-    if (param === undefined) return undefined;
-    const parsedInt = parseInt(param, 10);
-    return isNaN(parsedInt) ? undefined : parsedInt;
-}
+})

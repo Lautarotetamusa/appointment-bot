@@ -2,7 +2,7 @@ import * as dotenv from 'dotenv';
 import { join } from "path";
 import { exit } from 'process';
 dotenv.config({
-    path: join(__dirname, "../.env")
+    path: join(__dirname, "../../.env")
 });
 
 const requiredEnvVars = [

@@ -2,6 +2,9 @@ import './env'
 
 import express, { Request, Response, NextFunction } from 'express';
 import { handleErrors } from './middlewares/errors';
+import { server } from './services/mcp';
+
+import { StreamableHTTPServerTransport } from "@modelcontextprotocol/sdk/server/streamableHttp.js";
 
 import clienteRouter from './routes/client';
 import professionalRouter from './routes/professional';
@@ -30,6 +33,19 @@ app.use('/service', serviceRouter);
 app.use('/appointment', appointmentRouter);
 app.use('/slot', slotRouter);
 app.use(handleErrors);
+
+app.post("/mcp", async (req: Request, res: Response) => {
+    console.log("New request to mcp connect");
+    const transport = new StreamableHTTPServerTransport({
+        sessionIdGenerator: undefined,  
+    });
+
+    await server.connect(transport); // ✅ Esto activa el protocolo MCP
+    
+    await transport.handleRequest(req, res, req.body); // ✅ Esto ya responde
+
+    res.status(200);
+});
 
 app.get('/', (req: Request, res: Response) => {
     res.send("Server its alive!");
